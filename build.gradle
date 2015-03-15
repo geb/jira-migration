@@ -1,0 +1,33 @@
+apply plugin: "idea"
+apply plugin: "groovy"
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://oss.jfrog.org/simple/oss-snapshot-local"
+    }
+}
+
+ext {
+    ratpackVersion = "0.9.15-SNAPSHOT"
+    guiceVersion = "4.0-beta5"
+}
+
+dependencies {
+    testCompile "io.ratpack:ratpack-core:$ratpackVersion"
+    testCompile "com.google.inject:guice:$guiceVersion"
+    testCompile "org.codehaus.groovy:groovy-all:2.4.1"
+    testCompile "io.ratpack:ratpack-test:$ratpackVersion"
+    testCompile "org.spockframework:spock-guice:1.0-groovy-2.4"
+    testCompile "io.netty:netty-handler-proxy:4.1.0.Beta4"
+    testCompile "co.freeside:betamax:1.1.2"
+}
+
+idea {
+    project {
+        jdkName = "1.8"
+        languageLevel = "1.8"
+
+        vcs = "Git"
+    }
+}
