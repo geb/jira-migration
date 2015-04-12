@@ -11,16 +11,21 @@ repositories {
 ext {
     ratpackVersion = "0.9.15-SNAPSHOT"
     guiceVersion = "4.0-beta5"
+    jacksonVersion = "2.5.1"
 }
 
 dependencies {
-    testCompile "io.ratpack:ratpack-core:$ratpackVersion"
-    testCompile "com.google.inject:guice:$guiceVersion"
+    compile "io.ratpack:ratpack-core:$ratpackVersion"
+    compile "com.google.inject:guice:$guiceVersion"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion"
+    compile "org.slf4j:slf4j-api:1.7.6"
+    compile "io.ratpack:ratpack-test:$ratpackVersion"
+
+    runtime "ch.qos.logback:logback-classic:1.1.2"
+
     testCompile "org.codehaus.groovy:groovy-all:2.4.1"
-    testCompile "io.ratpack:ratpack-test:$ratpackVersion"
     testCompile "org.spockframework:spock-guice:1.0-groovy-2.4"
-    testCompile "io.netty:netty-handler-proxy:4.1.0.Beta4"
-    testCompile "co.freeside:betamax:1.1.2"
 }
 
 idea {
